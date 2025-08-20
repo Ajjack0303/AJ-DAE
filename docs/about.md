@@ -5,56 +5,39 @@ layout: single
 ---
 
 <div style="text-align:center; margin-bottom:2rem;">
-  <img src="{{ '/assets/img/pinky.jpg' | relative_url }}" alt="Alex Rivera" 
+  <img src="{{ '/assets/img/profile.jpg' | relative_url }}" alt="Altolane Jackson III" 
        style="max-width:200px; border-radius:50%; box-shadow:0 4px 12px rgba(0,0,0,.15);">
 </div>
 
-## My Journey in Cybersecurity
+## My Journey in Backend Development
 
-I design secure backend services that help teams ship faster with confidence. Currently pursuing my degree in **Cybersecurity & Backend Development** at DAE, with an expected graduation in **May 2025**.
+I design **secure backend systems** and explore creative technology projects that merge functionality with art. Currently pursuing my degree in **Cybersecurity & Backend Development** at DAE, graduating **May 2025**.
 
-I'm actively seeking a role as a **Security Engineer** in a collaborative, growth-oriented team where I can contribute to building robust defense systems.
+I am seeking roles where I can **create robust backend solutions** and **innovative tech experiences** for users.
 
 ### Core Interests & Expertise
 
-🔍 **Threat Modeling**  
-Analyzing system architectures to identify potential attack vectors and implementing appropriate countermeasures.
+🔧 **Backend Development**  
+Designing APIs, database architectures, and scalable microservices  
 
-🚨 **Incident Response**  
-Developing and executing response procedures for security incidents, from detection through remediation.
+🛡️ **Secure Systems**  
+Authentication, access control, and encrypted storage for reliable services  
 
-🔐 **API Security**  
-Designing secure authentication and authorization systems for modern web applications.
+🎨 **Creative Technology**  
+Interactive simulations, particle systems, and AI-assisted tools  
 
 ### Technical Skills
 
-**Programming Languages:**
-- Python (Security automation, data analysis)
-- Go (Backend services, CLI tools)
-- TypeScript (Frontend security implementations)
+**Programming Languages:** Python, Go, TypeScript/JavaScript, SQL/NoSQL  
+**Tools & Platforms:** Docker, Kubernetes, AWS, Azure, Git/GitHub  
+**Creative Tech Tools:** Particle simulators, Web3 integrations, AI-assisted projects  
 
-**Cloud & Infrastructure:**
-- AWS (IAM, CloudTrail, GuardDuty)
-- Azure (Security Center, Sentinel)
-- Docker & Kubernetes (Container security)
-
-**Security Tools:**
-- SIEM platforms (Splunk, ELK Stack)
-- Vulnerability scanners
-- Network analysis tools
-
-### Education & Certifications
+### Education
 
 **District Arts & Education (DAE)**  
 *Cybersecurity & Backend Development Program*  
 *Expected Graduation: May 2025*
 
-**Relevant Coursework:**
-- Network Security & Penetration Testing
-- Secure Software Development
-- Digital Forensics & Incident Response
-- Cloud Security Architecture
-
 ---
 
-*"Security is not a product, but a process. It's about building systems that fail securely and recover gracefully."*
+*"I combine art with technology to build backend systems that are secure, interactive, and scalable."*

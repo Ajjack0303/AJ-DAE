@@ -1,13 +1,13 @@
 # =====================
 # SITE BASICS
 # =====================
-title: "Alex Rivera — Cybersecurity & Backend Developer"
+title: "Altolane Jackson III — Backend Web Developer"
 description: "Portfolio showcasing secure backend systems, automation, and case studies."
-url: "https://abhinav9558.github.io" # ← Your actual GitHub username
-baseurl: "/DAE-Demo" # ← Your actual repository name
+url: "https://ajjack0303.github.io" # GitHub Pages URL
+baseurl: "/DAE-6.12.25-job-roles" # Repository name (case-sensitive)
 
 # =====================
-# THEME (Modern)
+# THEME (Minimal Mistakes)
 # =====================
 remote_theme: "mmistakes/minimal-mistakes"
 minimal_mistakes_skin: "default"
@@ -16,17 +16,17 @@ minimal_mistakes_skin: "default"
 # AUTHOR PROFILE
 # =====================
 author:
-    name: "Alex Rivera"
-    avatar: "/assets/img/pinky.jpg" # ← Fixed from .heic
-    bio: "Cybersecurity & backend developer focused on secure-by-default services."
-    email: "alex.rivera@example.com"
-    links:
-        - label: "GitHub"
-          icon: "fab fa-github"
-          url: "https://github.com/your-username"
-        - label: "LinkedIn"
-          icon: "fab fa-linkedin"
-          url: "https://www.linkedin.com/in/your-profile/"
+  name: "Altolane Jackson III"
+  avatar: "/assets/img/profile.jpg"
+  bio: "Backend development student combining secure, scalable systems with creative technology projects."
+  email: "aj.jackson0303@gmail.com"
+  links:
+    - label: "GitHub"
+      icon: "fab fa-github"
+      url: "https://github.com/ajjack0303"
+    - label: "LinkedIn"
+      icon: "fab fa-linkedin"
+      url: "https://www.linkedin.com/in/altolane-jackson-39a6a9170"
 
 # =====================
 # NAVIGATION (top menu)
@@ -36,16 +36,16 @@ author:
 # =====================
 # BRANDING
 # =====================
-logo: "/assets/img/dae-logo.jpg" # ← Fixed from .avif
+logo: "/assets/img/dae-logo.avif"
 
 # =====================
 # PLUGINS (safe + GitHub Pages supported)
 # =====================
 plugins:
-    - jekyll-feed
-    - jekyll-seo-tag
-    - jekyll-include-cache
-    - jekyll-remote-theme
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-include-cache
+  - jekyll-remote-theme
 
 # =====================
 # BUILD & MARKDOWN
@@ -55,33 +55,26 @@ highlighter: rouge
 permalink: pretty
 
 # =====================
-# GLOBAL DEFAULTS (keeps layout consistent)
+# GLOBAL DEFAULTS (layout, ToC, author)
 # =====================
-# These defaults apply Minimal Mistakes' single-page layout with a sticky ToC.
-# They won't break Minima; Minima ignores unknown front matter values.
 defaults:
-    - scope:
-          path: ""
-          type: "pages"
-      values:
-          layout: single
-          toc: true
-          toc_sticky: true
-          author_profile: true
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: single
+      toc: true
+      toc_sticky: true
+      author_profile: true
 
 # =====================
-# EXCLUDES (keep the build clean)
+# EXCLUDES (optional)
 # =====================
-# GitHub Pages handles these exclusions automatically
 # exclude:
-#     - README.md
-#     - Gemfile
-#     - Gemfile.lock
-#     - .sass-cache/
-#     - .jekyll-cache/
-#     - gemfiles/
-#     - node_modules/
-#     - vendor/bundle/
-#     - vendor/cache/
-#     - vendor/gems/
-#     - vendor/ruby/
+#   - README.md
+#   - Gemfile
+#   - Gemfile.lock
+#   - .sass-cache/
+#   - .jekyll-cache/
+#   - node_modules/
+#   - vendor/
