@@ -10,7 +10,7 @@ permalink: /
   <div>
     <h1 style="margin:0; color:#2c3e50;">AJ</h1>
     <p style="margin:.5rem 0; font-size:1.1rem; color:#34495e;">Backend Web Developer · Graduating May 2025</p>
-    <p style="margin:.5rem 0; line-height:1.6;">I build **secure, scalable backend systems** and integrate creative technology tools like interactive simulations and AI-assisted projects.</p>
+    <p style="margin:.5rem 0; line-height:1.6;">I build secure, scalable backend systems and integrate creative technology tools like interactive simulations and AI-assisted projects.</p>
   </div>
 </div>
 
@@ -25,7 +25,7 @@ I'm passionate about combining **art and technology** to deliver innovative back
 
 ### Current Focus
 
-As I approach graduation in **May 2025**, I'm building a portfolio of backend systems and interactive projects to showcase:
+As I approach graduation in **February 2026**, I'm building a portfolio of backend systems and interactive projects to showcase:
 
 - Robust and secure backend solutions  
 - Creative and educational tech projects  
