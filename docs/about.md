@@ -5,44 +5,56 @@ layout: single
 ---
 
 <div style="text-align:center; margin-bottom:2rem;">
-  <img src="{{ '/assets/img/profile.jpg' | relative_url }}" alt="Altolane Jackson III" 
+  <img src="{{ '/assets/img/pinky.jpg' | relative_url }}" alt="Alex Rivera" 
        style="max-width:200px; border-radius:50%; box-shadow:0 4px 12px rgba(0,0,0,.15);">
 </div>
 
-I'm Altolane Jackson III, a student and aspiring **backend web developer**, with a passion for technology, art, and learning. Currently studying **Cybersecurity & Backend Development** at DAE, with expected graduation in **February 2026**.
+## My Journey in Cybersecurity
 
-I aim to work with innovative teams to create secure, efficient systems — blending **security principles**, **automation**, and **creative technology** to deliver both reliability and originality.
+I design secure backend services that help teams ship faster with confidence. Currently pursuing my degree in **Cybersecurity & Backend Development** at DAE, with an expected graduation in **May 2025**.
 
-### Core Interests
+I'm actively seeking a role as a **Security Engineer** in a collaborative, growth-oriented team where I can contribute to building robust defense systems.
 
-🔒 **Cybersecurity Foundations**  
-Building knowledge in security best practices, network defense, and risk mitigation.
+### Core Interests & Expertise
 
-⚙️ **Backend Development & Automation**  
-Learning to design and implement APIs, process automation, and secure backend systems.
+🔍 **Threat Modeling**  
+Analyzing system architectures to identify potential attack vectors and implementing appropriate countermeasures.
 
-🎨 **Creative & Emerging Tech**  
-Exploring ways to merge art and technology — from interactive visuals to blockchain-based creative projects.
+🚨 **Incident Response**  
+Developing and executing response procedures for security incidents, from detection through remediation.
 
-### Technical Skills (In Progress)
+🔐 **API Security**  
+Designing secure authentication and authorization systems for modern web applications.
 
-**Programming & Development:**
-- Python (automation scripts, security-focused utilities)
-- JavaScript / TypeScript (basic frontend and scripting)
+### Technical Skills
 
-**Tools & Platforms:**
-- GitHub (version control, collaboration)
-- Docker (containerized environments)
-- Splunk / ELK (class lab security monitoring)
+**Programming Languages:**
+- Python (Security automation, data analysis)
+- Go (Backend services, CLI tools)
+- TypeScript (Frontend security implementations)
 
-### Education
+**Cloud & Infrastructure:**
+- AWS (IAM, CloudTrail, GuardDuty)
+- Azure (Security Center, Sentinel)
+- Docker & Kubernetes (Container security)
+
+**Security Tools:**
+- SIEM platforms (Splunk, ELK Stack)
+- Vulnerability scanners
+- Network analysis tools
+
+### Education & Certifications
 
 **District Arts & Education (DAE)**  
 *Cybersecurity & Backend Development Program*  
-*Expected Graduation: February 2026*
+*Expected Graduation: May 2025*
 
-**Relevant Coursework (Ongoing):**
-- Network Security Fundamentals
-- Secure Software Practices
-- Intro to Digital Forensics
-- Basic Cloud Security Concepts
+**Relevant Coursework:**
+- Network Security & Penetration Testing
+- Secure Software Development
+- Digital Forensics & Incident Response
+- Cloud Security Architecture
+
+---
+
+*"Security is not a product, but a process. It's about building systems that fail securely and recover gracefully."*
