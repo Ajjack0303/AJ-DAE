@@ -9,35 +9,42 @@ layout: single
        style="max-width:200px; border-radius:50%; box-shadow:0 4px 12px rgba(0,0,0,.15);">
 </div>
 
-## My Journey in Backend Development
+I'm **AJ**, a student and aspiring **backend web developer**, passionate about building **efficient, maintainable systems** and exploring **emerging technology**. Currently studying **Backend Development & Cybersecurity** at DAE, with graduation expected in **February 2026**.
 
-I design **secure backend systems** and explore creative technology projects that merge functionality with art. Currently pursuing my degree in **Cybersecurity & Backend Development** at DAE, graduating **May 2025**.
+I aim to collaborate with innovative teams to deliver backend solutions that combine **automation**, **practical security principles**, and **creative technology**, bridging the gap between functionality and experimentation.
 
-I am seeking roles where I can **create robust backend solutions** and **innovative tech experiences** for users.
+### Core Interests
 
-### Core Interests & Expertise
+⚙️ **Backend Development & Automation**  
+Designing and implementing APIs, database-driven systems, and workflow automation.
 
-🔧 **Backend Development**  
-Designing APIs, database architectures, and scalable microservices  
+💻 **Class Projects & Experimentation**  
+Building projects like the Password Strength Detector and Particle Simulator to apply practical backend and programming skills.
 
-🛡️ **Secure Systems**  
-Authentication, access control, and encrypted storage for reliable services  
+🎨 **Creative & Emerging Tech**  
+Exploring art-tech integration, AI-assisted tools, and Web3 applications.
 
-🎨 **Creative Technology**  
-Interactive simulations, particle systems, and AI-assisted tools  
+### Technical Skills (In Progress)
 
-### Technical Skills
+**Programming & Development:**
+- Python (automation scripts, backend utilities)
+- JavaScript / TypeScript (scripting and frontend integration)
 
-**Programming Languages:** Python, Go, TypeScript/JavaScript, SQL/NoSQL  
-**Tools & Platforms:** Docker, Kubernetes, AWS, Azure, Git/GitHub  
-**Creative Tech Tools:** Particle simulators, Web3 integrations, AI-assisted projects  
+**Tools & Platforms:**
+- GitHub (version control, collaboration)
+- Docker (containerized development)
+- VS Code (development environment)
+- Postman (API testing and automation)
+- MySQL / SQLite (databases for class projects)
 
 ### Education
 
 **District Arts & Education (DAE)**  
-*Cybersecurity & Backend Development Program*  
-*Expected Graduation: May 2025*
+*Backend Development & Cybersecurity Program*  
+*Expected Graduation: February 2026*
 
----
-
-*"I combine art with technology to build backend systems that are secure, interactive, and scalable."*
+**Relevant Coursework:**
+- Secure Software Practices  
+- Network Security Fundamentals  
+- Intro to Digital Forensics  
+- Basic Cloud Security Concepts
