@@ -1,22 +1,25 @@
 # To-Do List Manager
 
-A Python-based To-Do List Manager that allows users to add, view, and manage tasks with save/load functionality. This project demonstrates basic CLI or GUI-based task management and file handling in Python.
+A Python-based command-line To-Do List Manager that allows users to create, view, update, and delete tasks. This project demonstrates file handling, data persistence using JSON, and basic task management logic in Python.
 
 ---
 
 ## Features
 
-- Add, remove, and view tasks
-- Save and load tasks to/from a JSON file
-- Simple, intuitive interface
-- Works entirely in Python, compatible with Python 3.13+
+- Add new tasks with title and description
+- Mark tasks as completed
+- Delete tasks
+- View all tasks in a structured list
+- Save and load tasks using a JSON file (`tasks.json`)
+- Simple, easy-to-use command-line interface
+- Compatible with Python 3.13+
 
 ---
 
 ## Requirements
 
 - Python 3.x (3.13 recommended)
-- Standard Python libraries: `json`, `os`
+- Standard Python libraries: `json`, `os`, `datetime`
 - Optional virtual environment for isolation
 
 ---
@@ -36,26 +39,19 @@ python3 -m venv venv_todo
 source venv_todo/bin/activate
 ```
 
-3. Install any dependencies if needed (currently uses standard Python libraries).
+3. Ensure Python standard libraries are available (no additional packages required).
 
 ---
 
 ## Running the To-Do List Manager
 
-To run the script:
+To run the main script:
 
 ```bash
 python3 to_do-list.py
 ```
 
-The CLI/GUI will launch, allowing you to manage tasks interactively.
-
----
-
-## Configuration
-
-- Tasks are stored in a JSON file (`tasks.json`) for persistence
-- Modify the file path in the script if you want to store tasks elsewhere
+Follow the on-screen prompts to add, update, delete, or view tasks. Tasks are automatically saved to `tasks.json`.
 
 ---
 
@@ -64,26 +60,24 @@ The CLI/GUI will launch, allowing you to manage tasks interactively.
 ```
 to_do_list/
 │
-├── to_do-list.py       # Main script
-├── tasks.json          # JSON file storing tasks
-├── venv_todo/          # Optional virtual environment
-└── README.md           # Project documentation
+├── README.md           # Project documentation
+├── to_do-list.py       # Main Python script for task management
+└── tasks.json          # JSON file storing task data
 ```
 
 ---
 
 ## Git and Version Control
 
-* Exclude runtime or generated files in `.gitignore`:
+* Exclude virtual environments and Python cache files in `.gitignore`:
 
 ```
 venv_todo/
 *.pyc
 __pycache__/
-tasks.json
 ```
 
-* Track only the source code, configuration, and documentation.
+* Track only source code, task data, and project documentation.
 
 ---
 
@@ -103,7 +97,6 @@ Specify your license here (e.g., MIT, GPL, etc.)
 
 ## Notes
 
-* This project is intended as a simple task management tool
-* Ensure Python 3.x is used to avoid compatibility issues
-* JSON file storage allows persistent task tracking across sessions
-
+- This project is intended as a learning tool for basic Python file handling and CLI interaction.
+- Customize or extend the task manager by adding priority levels, deadlines, or other features.
+- Ensure Python 3.x is used to avoid compatibility issues.
