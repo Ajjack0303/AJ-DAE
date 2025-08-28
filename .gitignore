@@ -1,2 +1,26 @@
+# macOS system files
 .DS_Store
-docs/.DS_Store
+
+# Python cache / build files
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+*.so
+
+# Virtual environments
+venv/
+venv_quartz/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# Jekyll build output
+docs/_site/
+
+# Logs
+*.log
+
+# Backup / temp files
+*~
+
