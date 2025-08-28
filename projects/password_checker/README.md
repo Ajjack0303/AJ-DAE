@@ -1,22 +1,27 @@
 # Password Strength Checker
 
-A Python CLI tool to check the strength of passwords and provide feedback on security.
+A Python command-line tool that evaluates the strength of user-provided passwords. This project demonstrates basic input validation, string analysis, and secure coding practices.
 
 ---
 
 ## Features
 
-- Checks password length, character types, and complexity
-- Provides strength rating and suggestions
+- Check password strength based on:
+  - Length
+  - Uppercase and lowercase letters
+  - Numbers
+  - Special characters
+- Provides a simple rating (e.g., Weak, Moderate, Strong)
 - Command-line interface for easy use
-- Compatible with Python 3.x
+- Compatible with Python 3.13+
 
 ---
 
 ## Requirements
 
-- Python 3.x
-- Standard Python libraries only
+- Python 3.x (3.13 recommended)
+- Standard Python libraries: `re`, `sys`
+- Optional virtual environment for isolation
 
 ---
 
@@ -35,15 +40,19 @@ python3 -m venv venv_password
 source venv_password/bin/activate
 ```
 
+3. Ensure Python standard libraries are available (no additional packages required).
+
 ---
 
-## Running the Password Checker
+## Running the Password Strength Checker
+
+To run the script:
 
 ```bash
 python3 password_checker.py
 ```
 
-Follow the prompts to enter passwords and get feedback.
+Follow the on-screen prompts to enter a password. The tool will output a strength rating and suggestions for improvement.
 
 ---
 
@@ -51,18 +60,32 @@ Follow the prompts to enter passwords and get feedback.
 
 ```
 password_checker/
-├── password_checker.py
-├── README.md
-└── venv_password/       # Optional virtual environment
+│
+├── README.md               # Project documentation
+└── password_checker.py     # Main Python script for password checking
 ```
+
+---
+
+## Git and Version Control
+
+* Exclude virtual environments and Python cache files in `.gitignore`:
+
+```
+venv_password/
+*.pyc
+__pycache__/
+```
+
+* Track only source code and project documentation.
 
 ---
 
 ## Contributing
 
 1. Fork the repository
-2. Make changes on a new branch
-3. Submit a pull request
+2. Make your changes on a new branch
+3. Submit a pull request describing your modifications
 
 ---
 
@@ -70,3 +93,10 @@ password_checker/
 
 Specify your license here (e.g., MIT, GPL, etc.)
 
+---
+
+## Notes
+
+- This project is intended as a learning tool for password validation and CLI programming.
+- Extend the tool by adding complexity rules, password history checks, or integration with other systems.
+- Ensure Python 3.x is used to avoid compatibility issues.
