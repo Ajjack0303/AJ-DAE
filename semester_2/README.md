@@ -99,7 +99,7 @@ Semester 2/
 
 * **Email:** [ajjackson@example.com](mailto:ajjackson@example.com)
 * **Portfolio / GitHub:** [https://github.com/ajjackson](https://github.com/ajjackson)
-* **LinkedIn:** [https://www.linkedin.com/in/ajjackson](https://www.linkedin.com/in/ajjackson)
+* **LinkedIn:** [https://www.linkedin.com/in/altolane-jackson-39a6a9170/](https://www.linkedin.com/in/ajjackson)
 * **Personal Website / Portfolio:** [https://ajjackson.dev](https://ajjackson.dev)
 
 Feel free to reach out for questions about projects or collaboration opportunities.
