@@ -23,7 +23,7 @@ I’m AJ Jackson, a Backend Web Developer in training with a focus on **secure-b
 
 ## 🔗 Connect With Me
 
-- **LinkedIn:** [https://www.linkedin.com/in/ajjackson](https://www.linkedin.com/in/ajjackson)  
+- **LinkedIn:** [https://www.linkedin.com/in/ajjackson](www.linkedin.com/in/altolane-jackson-39a6a9170)  
 - **GitHub:** [https://github.com/Ajjack0303](https://github.com/Ajjack0303)  
 - **GitHub Pages Portfolio:** [https://ajjack0303.github.io/my-portfolio](https://ajjack0303.github.io/my-portfolio)  
 - **Resume:** [AJresume2025.pdf](https://github.com/Ajjack0303/DAE-6.12.25-job-roles/raw/main/docs/resume.pdf)  
