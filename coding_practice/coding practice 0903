@@ -1,0 +1,40 @@
+# stack.py
+# -----------------------------------------------------------------------------
+# Your task: implement a simple Stack using a Python list.
+#
+# Functions to implement:
+#   1. push(value)    -> put value on top of the stack
+#   2. pop()          -> remove and return the top value, or None if empty
+#   3. peek()         -> return the top value without removing it, or None if empty
+#   4. is_empty()     -> return True if the stack has no items
+#   5. size()         -> return how many items are in the stack
+# -----------------------------------------------------------------------------
+# A simple Stack using a Python list.
+# Functions: push, pop, peek, empty, size
+# -----------------------------------------------------------------------------
+
+stack = []
+
+def push(value):
+    # put value on top of the stack
+    stack.append(value)
+
+def pop():
+    # remove and return the top value, or None if empty
+    if len(stack) == 0:
+        return None
+    return stack.pop()
+
+def peek():
+    # return the top value without removing it, or None if empty
+    if len(stack) == 0:
+        return None
+    return stack[-1]
+
+def empty():
+    # return True if the stack is empty
+    return len(stack) == 0
+
+def size():
+    # return how many items are in the stack
+    return len(stack)
