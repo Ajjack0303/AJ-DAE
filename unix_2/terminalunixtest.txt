@@ -1,0 +1,189 @@
+ 3 files changed, 18 insertions(+)
+ create mode 100644 logic_1/2 Week Python Project (particle simulator).jam
+ create mode 100644 readme.md
+Student@DAEDMAC09 AJ DAE 2025 % git push --all  
+Enumerating objects: 9, done.
+Counting objects: 100% (9/9), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (6/6), done.
+Writing objects: 100% (6/6), 60.92 KiB | 30.46 MiB/s, done.
+Total 6 (delta 2), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
+To https://github.com/Ajjack0303/DAE-6.12.25-job-roles.git
+   794e2d2..642f1f6  main -> main
+Student@DAEDMAC09 AJ DAE 2025 % git add .
+Student@DAEDMAC09 AJ DAE 2025 % git commit -m "see previous entry for today"
+[main f2d5893] see previous entry for today
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 "Screenshot 2025-07-15 at 2.31.33\342\200\257PM.png"
+Student@DAEDMAC09 AJ DAE 2025 % 
+  [Restored Jul 16, 2025 at 11:22:41 AM]
+Last login: Tue Jul 15 14:09:06 on ttys000
+Restored session: Tue Jul 15 14:32:32 EDT 2025
+Student@DAEDMAC09 AJ DAE 2025 % clear
+
+Student@DAEDMAC09 AJ DAE 2025 % clear
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Student@DAEDMAC09 AJ DAE 2025 % nano myfile.txt
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  UW PICO 5.09                              File: myfile.txt                              Modified  
+
+test text fire for unix assignment
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+^G Get Help     ^O WriteOut     ^R Read File    ^Y Prev Pg      ^K Cut Text     ^C Cur Pos      
+^X Exit         ^J Justify      ^W Where is     ^V Next Pg      ^U UnCut Text   ^T To Spell     
