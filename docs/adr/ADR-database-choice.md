@@ -1,39 +1,28 @@
-Title
+# Use PostgreSQL for InkConnect Database
 
-Use PostgreSQL as the primary database
+## Context
+We needed a relational database to store users, portfolios, requests, and responses. The database must support foreign key relationships, data integrity, and scale for multiple artists and clients.
 
-Context
+## Decision
+We chose PostgreSQL as the primary database for InkConnect.
 
-We needed a database solution to manage structured artist data, portfolio content, and user requests. The system requires relationships (users ↔ portfolios, requests ↔ responses) and strong data integrity.
+## Rationale
+- Mature, widely used, and well-supported open-source RDBMS.
+- Supports advanced relational features (foreign keys, constraints).
+- Works well with SQLAlchemy or Django ORM.
+- Strong community support and good documentation.
+- Compatible with cloud deployments for production.
 
-Decision
+### Alternatives Considered
+- **MySQL** – Similar features, but we preferred PostgreSQL’s advanced type system and stricter standard compliance.
+- **SQLite** – Lightweight and good for local dev, but not suitable for multi-user production.
+- **MongoDB** – NoSQL, but we need relational integrity and joins.
 
-We chose PostgreSQL as the production database.
+## Consequences
+- Developers must use PostgreSQL for local dev and production.
+- Migration scripts and ORMs must target PostgreSQL features.
+- Slightly higher setup overhead compared to SQLite.
 
-Rationale
-
-Mature relational database with strong community support
-
-Enforces schema and constraints for data consistency
-
-Supports advanced queries, indexing, and JSON fields if needed
-
-Well supported by ORMs and backend frameworks
-
-Alternatives considered:
-
-MongoDB (flexible schema, but less suited for relational data)
-
-MySQL (similar relational support, but PostgreSQL offers better JSON handling and features)
-
-Consequences
-
-Strong integrity guarantees
-
-Slightly steeper learning curve compared to schemaless DBs
-
-Requires setup for local dev (can be simplified with Docker)
-
-References
-
-https://www.postgresql.org
+## References
+- https://www.postgresql.org
+- SQLAlchemy documentation: https://docs.sqlalchemy.org

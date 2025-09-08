@@ -1,39 +1,27 @@
-Title
+# Use RESTful API Style for InkConnect Backend
 
-Use REST API with versioning (/api/v1/)
+## Context
+We needed a consistent API design for frontend consumption (React app or mobile clients). The API must support CRUD operations on users, portfolios, requests, and responses.
 
-Context
+## Decision
+We decided to implement a RESTful API design for all endpoints.
 
-The backend must expose endpoints for client apps (portfolio site, admin dashboard, etc.). We needed a style that is simple, widely adopted, and easy to evolve as the project grows.
+## Rationale
+- Widely understood and compatible with most frontend frameworks.
+- Easy to test using tools like Postman or Swagger.
+- Simplifies versioning and resource-based design.
+- Aligns with common FastAPI and Django REST practices.
 
-Decision
+### Alternatives Considered
+- **GraphQL** – Offers flexible queries but adds complexity and requires learning curve.
+- **gRPC** – More efficient for microservices, but overkill for this project’s size.
+- **SOAP** – Outdated, verbose, not ideal for modern frontend frameworks.
 
-We chose a REST API design with versioning using /api/v1/ as a prefix.
+## Consequences
+- Must adhere to REST standards (HTTP verbs, status codes, resource URLs).
+- Easy to document and maintain for the frontend team.
+- Limits overly flexible queries that GraphQL allows.
 
-Rationale
-
-REST is familiar to most developers and widely supported by tools
-
-Works well for CRUD operations (create/update portfolio, request, user)
-
-Versioning avoids breaking changes when APIs evolve
-
-Easier to document with tools like Swagger/OpenAPI
-
-Alternatives considered:
-
-GraphQL (powerful for flexible queries, but adds complexity and overhead)
-
-gRPC (fast binary protocol, but unnecessary for a lightweight web API)
-
-Consequences
-
-Straightforward for client integration
-
-Limited flexibility compared to GraphQL for highly customized queries
-
-Must manage multiple versions in future releases
-
-References
-
-https://restfulapi.net/versioning/
+## References
+- https://restfulapi.net
+- FastAPI REST tutorial: https://fastapi.tiangolo.com/tutorial/
