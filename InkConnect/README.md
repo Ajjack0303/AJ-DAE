@@ -18,7 +18,7 @@ InkConnect is a backend API designed for tattoo artists and clients to connect, 
 
 ### Technical Goals
 - Implement a normalized (3NF) relational database
-- Provide a RESTful API with CRUD endpoints
+- Provide a RESTful API with CRUD endpoints via **FastAPI**
 - Demonstrate SELECT, UPDATE, DELETE operations
 - Export database to `.sql` for portability
 - Align project deliverables with rubric requirements
@@ -27,7 +27,35 @@ InkConnect is a backend API designed for tattoo artists and clients to connect, 
 
 ## 📂 Project Structure
 InkConnect/
-├── README.md # Project description + goals
-├── docs/ # API outlines, diagrams, documentation
-├── backend/ # Backend server code (Node/Express, Python, etc.)
-└── sql/ # Database schema + seed files
+├── README.md              # Project description + goals
+├── docs/                  # API outlines, ADRs, diagrams, documentation
+├── backend/               # FastAPI backend server code
+│   ├── app/
+│   │   ├── main.py
+│   │   ├── models/
+│   │   ├── schemas/
+│   │   ├── crud/
+│   │   ├── api/
+│   │   └── utils/
+│   ├── tests/
+│   └── requirements.txt
+└── sql/                   # Database schema + seed files
+
+---
+
+## ⚡ Backend Setup
+
+### Prerequisites
+- Python 3.12+
+- PostgreSQL installed
+- Git
+- Optional: virtual environment
+
+### Installation
+
+```bash
+cd backend
+python3 -m venv venv
+source venv/bin/activate
+python3 -m pip install --upgrade pip
+python3 -m pip install -r requirements.txt
