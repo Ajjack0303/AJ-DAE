@@ -3,7 +3,7 @@
 # =====================
 title: "Altolane Jackson III — Backend Web Developer"
 description: "Portfolio showcasing secure backend systems, automation, and case studies."
-url: "https://ajjack0303.github.io" # GitHub Pages URL
+url: "https://ajjack0303.github.io" # GitHub Pages root
 baseurl: "/AJ-DAE" # Repository name (case-sensitive)
 
 # =====================
