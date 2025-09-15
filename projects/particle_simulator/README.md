@@ -1,3 +1,4 @@
+````markdown
 # Particle Simulator
 
 A Python-based particle simulator featuring physics-like particle movement, customizable behavior, and statistics tracking. This project demonstrates interactive simulation with Python and is ideal for exploring physics-based visuals or learning particle system concepts.
@@ -9,7 +10,7 @@ A Python-based particle simulator featuring physics-like particle movement, cust
 - Particle movement with configurable properties (velocity, direction, lifespan, color, etc.)
 - Dynamic simulation that updates in real time
 - Particle statistics tracking via `particle_stats.json`
-- Configuration-driven setup using `config/` folder
+- Configuration-driven setup using the `config/` folder
 - Compatible with Python 3.13+
 
 ---
@@ -28,7 +29,7 @@ A Python-based particle simulator featuring physics-like particle movement, cust
 
 ```bash
 cd ~/Desktop/particle_simulator
-```
+````
 
 2. (Optional) Create and activate a virtual environment:
 
@@ -37,31 +38,33 @@ python3 -m venv venv_quartz
 source venv_quartz/bin/activate
 ```
 
-3. Install any dependencies if needed (for now, the project uses only Python standard libraries).
+3. Install dependencies if needed (currently, only standard libraries are used).
 
 ---
 
 ## Running the Simulator
 
-To run the main particle simulator script:
+Run the main particle simulator script:
 
 ```bash
 python3 main2.py
 ```
 
-The simulator will start, and particle movement will appear in the console or a GUI window depending on the implementation.
+The simulator will start, and particle movement will appear in the console or GUI window depending on your implementation.
 
 ---
 
 ## Configuration
 
-* Configuration files are located in the `config/` folder
-* Default settings include:
+Configuration files are located in the `config/` folder.
 
-  * Number of particles
-  * Particle speed and direction
-  * Lifespan and colors
-* Modify `config/config.json` or other JSON files to customize behavior
+Default settings include:
+
+* Number of particles
+* Particle speed and direction
+* Lifespan and colors
+
+Modify `config/config.json` or other JSON files to customize particle behavior.
 
 ---
 
@@ -82,7 +85,7 @@ particle_simulator/
 
 ## Git and Version Control
 
-* Exclude runtime or generated files in `.gitignore`:
+Exclude runtime or generated files in `.gitignore`:
 
 ```
 venv_quartz/
@@ -90,7 +93,7 @@ venv_quartz/
 __pycache__/
 ```
 
-* Track only the source code, configuration, and project documentation.
+Track only the source code, configuration, and project documentation.
 
 ---
 
@@ -110,8 +113,9 @@ Specify your license here (e.g., MIT, GPL, etc.)
 
 ## Notes
 
-* This project is intended as a learning tool and demo of particle simulation
-* Adjust `config/` files for different simulation scenarios
-* Ensure Python 3.x is used to avoid compatibility issues
+* This project is intended as a learning tool and demo of particle simulation.
+* Adjust `config/` files for different simulation scenarios.
+* Ensure Python 3.x is used to avoid compatibility issues.
 
-
+```
+```

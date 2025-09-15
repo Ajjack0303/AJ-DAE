@@ -5,13 +5,14 @@ import json
 from typing import List
 
 class Particle:
-    def __init__(self, x, y, radius, color, velocity):
+    def __init__(self, x, y, radius, color, velocity, growth_rate=0.2):
         self.x = x
         self.y = y
         self.radius = radius
         self.color = color
-        self.velocity = velocity  # Tuple (vx, vy)
-        self.id = None  # Canvas ID (set when drawn)
+        self.velocity = velocity
+        self.id = None
+        self.growth_rate = growth_rate
 
     def move(self, width, height):
         self.x += self.velocity[0]
@@ -23,38 +24,53 @@ class Particle:
         if self.y - self.radius <= 0 or self.y + self.radius >= height:
             self.velocity = (self.velocity[0], -self.velocity[1])
 
+        # Grow particle slowly with slight variation
+        self.radius += self.growth_rate * random.uniform(0.8, 1.2)
+
     def overlaps(self, other) -> bool:
         dx = self.x - other.x
         dy = self.y - other.y
-        distance = math.hypot(dx, dy)
-        return distance < self.radius + other.radius
+        return math.hypot(dx, dy) < self.radius + other.radius
 
     def merge_with(self, other):
-        # Weighted average of position
         total_area = self.area() + other.area()
         new_x = (self.x * self.area() + other.x * other.area()) / total_area
         new_y = (self.y * self.area() + other.y * other.area()) / total_area
-
-        # Average velocity
         new_vx = (self.velocity[0] + other.velocity[0]) / 2
         new_vy = (self.velocity[1] + other.velocity[1]) / 2
-
-        # Sum areas and derive new radius
         new_radius = math.sqrt(total_area / math.pi)
-
-        # Color stays as self.color (can be adjusted to blend colors if desired)
-        return Particle(
-            x=new_x,
-            y=new_y,
-            radius=new_radius,
-            color=self.color,
-            velocity=(new_vx, new_vy)
-        )
+        return Particle(new_x, new_y, new_radius, self.color, (new_vx, new_vy), self.growth_rate)
 
     def area(self):
         return math.pi * self.radius ** 2
 
+    def should_split(self, max_radius):
+        return self.radius >= max_radius
+
+    def split(self, split_factor=2):
+        new_particles = []
+        for _ in range(split_factor):
+            new_radius = self.radius / math.sqrt(split_factor)
+            speed = random.uniform(2, 4)  # faster spread
+            angle = random.uniform(0, 2 * math.pi)
+            new_velocity = (speed * math.cos(angle), speed * math.sin(angle))
+            new_particles.append(
+                Particle(self.x, self.y, new_radius, self.color, new_velocity, self.growth_rate)
+            )
+        return new_particles
+
 class ParticleSimulatorApp:
+    colors = [
+        "cyan", "magenta", "yellow", "lime", "red", "blue", "green", "orange",
+        "purple", "pink", "gold", "silver", "brown", "teal", "navy", "violet",
+        "indigo", "turquoise", "coral", "salmon", "khaki", "orchid", "crimson",
+        "limegreen", "darkorange", "deeppink", "dodgerblue", "hotpink", "sienna",
+        "plum", "darkviolet", "springgreen", "mediumslateblue", "darkcyan",
+        "lightseagreen", "darkmagenta", "firebrick", "midnightblue", "tan",
+        "thistle", "aqua", "chartreuse", "peru", "goldenrod", "mediumvioletred",
+        "mediumturquoise", "royalblue", "darkgoldenrod", "lightcoral", "palegreen"
+    ]
+
     def __init__(self, root):
         self.root = root
         self.root.title("Particle Simulator")
@@ -66,8 +82,13 @@ class ParticleSimulatorApp:
         self.counter_label = None
         self.title_frame = None
 
-        # Load stats with exception handling
         self.stats = self.load_stats()
+
+        # Optimized parameters for smooth simulation
+        self.max_radius = 12
+        self.split_factor = 2
+        self.refill_threshold = 10
+        self.refill_count = 5
 
         self.show_title_screen()
 
@@ -75,40 +96,18 @@ class ParticleSimulatorApp:
         self.title_frame = tk.Frame(self.root, bg="black")
         self.title_frame.pack(expand=True, fill=tk.BOTH)
 
-        title = tk.Label(
-            self.title_frame,
-            text="🌀 Particle Simulator",
-            fg="cyan",
-            bg="black",
-            font=("Helvetica", 32, "bold")
-        )
+        title = tk.Label(self.title_frame, text="🌀 Particle Simulator", fg="cyan", bg="black", font=("Helvetica", 32, "bold"))
         title.pack(pady=40)
 
-        start_button = tk.Button(
-            self.title_frame,
-            text="Start Simulation",
-            command=self.start_simulation,
-            font=("Helvetica", 18),
-            bg="cyan",
-            fg="black",
-            padx=20,
-            pady=10
-        )
+        start_button = tk.Button(self.title_frame, text="Start Simulation", command=self.start_simulation, font=("Helvetica", 18), bg="cyan", fg="black", padx=20, pady=10)
         start_button.pack()
 
     def start_simulation(self):
         self.title_frame.destroy()
-
         self.canvas = tk.Canvas(self.root, bg="black")
         self.canvas.pack(fill=tk.BOTH, expand=True)
 
-        self.counter_label = tk.Label(
-            self.root,
-            text="Particles: 0",
-            bg="black",
-            fg="white",
-            font=("Helvetica", 12)
-        )
+        self.counter_label = tk.Label(self.root, text="Particles: 0", bg="black", fg="white", font=("Helvetica", 12))
         self.counter_label.place(x=10, y=10)
 
         self.create_particles(100)
@@ -118,15 +117,11 @@ class ParticleSimulatorApp:
         for _ in range(count):
             x = random.randint(50, 750)
             y = random.randint(50, 550)
-            radius = random.randint(5, 15)
-            color = random.choice(["cyan", "magenta", "yellow", "lime"])
-            velocity = (random.uniform(-2, 2), random.uniform(-2, 2))
-            particle = Particle(x, y, radius, color, velocity)
-            self.particles.append(particle)
-
-            # Update stats
+            radius = random.randint(4, 8)
+            color = random.choice(self.colors)
+            velocity = (random.uniform(-3, 3), random.uniform(-3, 3))  # faster movement
+            self.particles.append(Particle(x, y, radius, color, velocity))
             self.stats["total_particles_created"] += 1
-
         self.update_particle_counter()
 
     def update_particle_counter(self):
@@ -134,20 +129,17 @@ class ParticleSimulatorApp:
 
     def animate(self):
         self.canvas.delete("all")
-
-        width = self.canvas.winfo_width()
-        height = self.canvas.winfo_height()
+        width, height = self.canvas.winfo_width(), self.canvas.winfo_height()
 
         for p in self.particles:
             p.move(width, height)
 
-        # Collision and merging
+        # Handle merging
         merged = set()
         new_particles = []
-        for i in range(len(self.particles)):
+        for i, p1 in enumerate(self.particles):
             if i in merged:
                 continue
-            p1 = self.particles[i]
             for j in range(i + 1, len(self.particles)):
                 if j in merged:
                     continue
@@ -155,18 +147,29 @@ class ParticleSimulatorApp:
                 if p1.overlaps(p2):
                     merged.add(i)
                     merged.add(j)
-                    new_p = p1.merge_with(p2)
-                    new_particles.append(new_p)
-
-                    # Update stats
+                    new_particles.append(p1.merge_with(p2))
                     self.stats["total_merges"] += 1
                     break
             else:
                 new_particles.append(p1)
-
         self.particles = new_particles
-        self.update_particle_counter()
 
+        # Handle splitting
+        updated_particles = []
+        for p in self.particles:
+            if p.should_split(self.max_radius):
+                split_particles = p.split(self.split_factor)
+                updated_particles.extend(split_particles)
+                self.stats["total_particles_created"] += len(split_particles)
+            else:
+                updated_particles.append(p)
+        self.particles = updated_particles
+
+        # Refill if particle count drops below threshold
+        if len(self.particles) < self.refill_threshold:
+            self.create_particles(self.refill_count)
+
+        # Draw particles
         for p in self.particles:
             p.id = self.canvas.create_oval(
                 p.x - p.radius, p.y - p.radius,
@@ -174,34 +177,22 @@ class ParticleSimulatorApp:
                 fill=p.color
             )
 
+        self.update_particle_counter()
         self.root.after(20, self.animate)
 
     def load_stats(self):
         try:
             with open("particle_stats.json", "r") as f:
-                data = json.load(f)
-        except FileNotFoundError:
-            print("Stats file not found. Initializing new stats.")
-            data = {"total_particles_created": 0, "total_merges": 0}
-        except json.JSONDecodeError:
-            print("Error decoding stats file. Using default stats.")
-            data = {"total_particles_created": 0, "total_merges": 0}
-        else:
-            print("Stats loaded successfully.")
-        finally:
-            print("Finished attempting to load stats.")
-            return data
+                return json.load(f)
+        except (FileNotFoundError, json.JSONDecodeError):
+            return {"total_particles_created": 0, "total_merges": 0}
 
     def save_stats(self):
         try:
             with open("particle_stats.json", "w") as f:
                 json.dump(self.stats, f)
         except IOError as e:
-            print(f"Failed to save stats due to an IO error: {e}")
-        else:
-            print("Stats saved successfully.")
-        finally:
-            print("Finished attempting to save stats.")
+            print(f"Failed to save stats: {e}")
 
     def on_close(self):
         self.save_stats()
