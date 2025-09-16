@@ -1,3 +1,5 @@
+[![pages-build-deployment](https://github.com/Ajjack0303/AJ-DAE/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/Ajjack0303/AJ-DAE/actions/workflows/pages/pages-build-deployment)
+
 # AJ Jackson — Portfolio & Projects
 
 Welcome to my GitHub repository! This repo showcases my projects, skills, and technical growth as a Backend Web Developer and aspiring cybersecurity professional. Here you’ll find interactive tools, simulations, and full-stack projects demonstrating secure, scalable, and creative technology solutions.
