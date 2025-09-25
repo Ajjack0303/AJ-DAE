@@ -1,13 +1,12 @@
-// db.js
 const { Pool } = require('pg');
 
 // --- Configure PostgreSQL connection ---
 const pool = new Pool({
-  user: 'inkconnect_user',        // PostgreSQL username
-  host: 'localhost',              // Host
-  database: 'inkconnect_db',      // Database name
-  password: 'august0916',         // Replace with your actual password
-  port: 5432,                     // Default Postgres port
+  user: process.env.DB_USER || 'inkconnect_user',
+  host: process.env.DB_HOST || 'localhost',
+  database: process.env.DB_NAME || 'inkconnect_db',
+  password: process.env.DB_PASSWORD || 'august0916',
+  port: process.env.DB_PORT || 5432,
 });
 
 // --- Test connection on startup ---
@@ -18,7 +17,7 @@ const pool = new Pool({
     client.release();
   } catch (err) {
     console.error('❌ Error connecting to PostgreSQL:', err);
-    process.exit(1); // Exit the app if DB connection fails
+    process.exit(1);
   }
 })();
 
