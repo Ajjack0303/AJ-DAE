@@ -1,10 +1,9 @@
-// backend/generateToken.js
 const jwt = require('jsonwebtoken');
 require('dotenv').config();
 
 // Example user payload
 const user = {
-  user_id: 1,     // change to the user you want (artist or client)
+  user_id: 1,     
   username: 'alice',
   role: 'artist',
 };

@@ -1,8 +1,10 @@
-// routes/artists.js
 const express = require('express');
 const router = express.Router();
 const pool = require('../db');
 const jwt = require('jsonwebtoken');
+require('dotenv').config();
+
+const JWT_SECRET = process.env.JWT_SECRET;
 
 // Middleware to check JWT
 const authMiddleware = (req, res, next) => {
@@ -11,7 +13,7 @@ const authMiddleware = (req, res, next) => {
 
   const token = authHeader.split(' ')[1];
   try {
-    const payload = jwt.verify(token, process.env.JWT_SECRET);
+    const payload = jwt.verify(token, JWT_SECRET);
     req.user = payload;
     next();
   } catch (err) {
@@ -19,7 +21,7 @@ const authMiddleware = (req, res, next) => {
   }
 };
 
-// GET all artists (protected)
+// GET all artists
 router.get('/', authMiddleware, async (req, res) => {
   try {
     const result = await pool.query('SELECT * FROM artists');

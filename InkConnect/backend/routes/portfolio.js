@@ -1,45 +1,34 @@
 const express = require('express');
 const router = express.Router();
 const pool = require('../db');
-const verifyJWT = require('../middleware/verifyJWT'); // middleware to check JWT
+const jwt = require('jsonwebtoken');
+require('dotenv').config();
 
-// GET all portfolio items for a specific artist
-router.get('/', verifyJWT, async (req, res) => {
-  const artist_id = req.query.artist_id;
+const JWT_SECRET = process.env.JWT_SECRET;
 
-  if (!artist_id) {
-    return res.status(400).json({ error: 'artist_id is required' });
-  }
+// Middleware to check JWT
+const authMiddleware = (req, res, next) => {
+  const authHeader = req.headers['authorization'];
+  if (!authHeader) return res.status(401).json({ error: 'Access token missing' });
 
+  const token = authHeader.split(' ')[1];
   try {
-    const result = await pool.query(
-      'SELECT * FROM portfolio WHERE artist_id = $1',
-      [artist_id]
-    );
+    const payload = jwt.verify(token, JWT_SECRET);
+    req.user = payload;
+    next();
+  } catch (err) {
+    return res.status(403).json({ error: 'Invalid token' });
+  }
+};
+
+// GET all portfolio items
+router.get('/', authMiddleware, async (req, res) => {
+  try {
+    const result = await pool.query('SELECT * FROM portfolio');
     res.json(result.rows);
   } catch (err) {
-    console.error('Error fetching portfolio:', err);
+    console.error(err);
     res.status(500).json({ error: 'Failed to fetch portfolio' });
-  }
-});
-
-// POST create a new portfolio item
-router.post('/', verifyJWT, async (req, res) => {
-  const { artist_id, title, description } = req.body;
-
-  if (!artist_id || !title) {
-    return res.status(400).json({ error: 'artist_id and title are required' });
-  }
-
-  try {
-    const result = await pool.query(
-      'INSERT INTO portfolio (artist_id, title, description) VALUES ($1, $2, $3) RETURNING *',
-      [artist_id, title, description || null]
-    );
-    res.json({ message: 'Portfolio item uploaded successfully!', item: result.rows[0] });
-  } catch (err) {
-    console.error('Error inserting portfolio item:', err);
-    res.status(500).json({ error: 'Failed to upload portfolio item' });
   }
 });
 
