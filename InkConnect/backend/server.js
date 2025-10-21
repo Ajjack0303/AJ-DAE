@@ -2,7 +2,7 @@ const express = require('express');
 const dotenv = require('dotenv');
 const cors = require('cors');
 const bodyParser = require('body-parser');
-const pool = require('./db');
+const { pool } = require('./db'); // Make sure db.js exports { pool }
 
 // Load environment variables
 dotenv.config();
@@ -13,6 +13,11 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
+// Root test route
+app.get('/', (req, res) => {
+  res.send('InkConnect backend is running!');
+});
 
 // Routes
 const authRoutes = require('./routes/auth');
