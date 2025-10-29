@@ -1,3 +1,4 @@
+// backend/server.js
 const express = require('express');
 const dotenv = require('dotenv');
 const cors = require('cors');
@@ -23,10 +24,12 @@ app.get('/', (req, res) => {
 const authRoutes = require('./routes/auth');
 const artistRoutes = require('./routes/artists');
 const portfolioRoutes = require('./routes/portfolio');
+const bookingsRouter = require('./routes/bookings'); // <--- move this up here
 
 app.use('/api/auth', authRoutes);
 app.use('/api/artists', artistRoutes);
 app.use('/api/portfolio', portfolioRoutes);
+app.use('/api/bookings', bookingsRouter); // <--- use before listen
 
 // Start server
 const PORT = process.env.PORT || 3000;
