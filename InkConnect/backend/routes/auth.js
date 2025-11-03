@@ -1,14 +1,13 @@
+// routes/auth.js
 const express = require('express');
 const router = express.Router();
-const { authenticateToken } = require('../middleware/auth');
-const { requireSafeRole } = require('../middleware/roles');
-const { loginUser, registerUser, getMe } = require('../controllers/authController');
+const { registerUser, loginUser } = require('../controllers/authController');
+const { authenticateToken, requireSafeRole } = require('../middleware/auth');
 
-// Public routes
-router.post('/login', authenticateToken, requireSafeRole('/login', 'POST'))', loginUser);
-router.post('/register', authenticateToken, requireSafeRole('/register', 'POST'))', registerUser);
+// Public route
+router.post('/login', loginUser);
 
-// Protected route
-router.get('/me', authenticateToken, requireSafeRole('/me', 'GET'))', authenticateToken, requireSafeRole('/auth/me', 'GET'), getMe);
+// Protected route: only admin can register new users
+router.post('/register', authenticateToken, requireSafeRole(['admin']), registerUser);
 
 module.exports = router;
