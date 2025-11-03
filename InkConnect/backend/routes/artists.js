@@ -1,87 +1,22 @@
 const express = require('express');
 const router = express.Router();
-const { pool } = require('../db');
+const { authenticateToken } = require('../middleware/auth');
+const { requireSafeRole } = require('../middleware/roles');
+const { getArtists, createArtist, updateArtist, deleteArtist } = require('../controllers/artistsController');
 
-// --------------------
-// GET all artists
-// --------------------
-router.get('/', async (req, res) => {
-  try {
-    const result = await pool.query('SELECT * FROM artists ORDER BY id ASC');
-    res.json(result.rows);
-  } catch (err) {
-    console.error(err.message);
-    res.status(500).json({ error: 'Failed to fetch artists' });
-  }
-});
+// List all artists
+router.get('/', authenticateToken, requireSafeRole('/', 'GET'))', authenticateToken, requireSafeRole('/artists', 'GET'), getArtists);
 
-// --------------------
-// GET single artist by ID
-// --------------------
-router.get('/:id', async (req, res) => {
-  const { id } = req.params;
-  try {
-    const result = await pool.query('SELECT * FROM artists WHERE id = $1', [id]);
-    if (result.rows.length === 0) return res.status(404).json({ error: 'Artist not found' });
-    res.json(result.rows[0]);
-  } catch (err) {
-    console.error(err.message);
-    res.status(500).json({ error: 'Failed to fetch artist' });
-  }
-});
+// Create new artist
+router.post('/', authenticateToken, requireSafeRole('/', 'POST'))', authenticateToken, requireSafeRole('/artists', 'POST'), createArtist);
 
-// --------------------
-// CREATE new artist
-// --------------------
-router.post('/', async (req, res) => {
-  const { name, style } = req.body;
-  if (!name || !style) return res.status(400).json({ error: 'Name and style are required' });
+// Get artist by ID
+router.get('/', authenticateToken, requireSafeRole('/', 'GET')):id', authenticateToken, requireSafeRole('/artists/:id', 'GET'), getArtists);
 
-  try {
-    const result = await pool.query(
-      'INSERT INTO artists (name, style) VALUES ($1, $2) RETURNING *',
-      [name, style]
-    );
-    res.status(201).json(result.rows[0]);
-  } catch (err) {
-    console.error(err.message);
-    res.status(500).json({ error: 'Failed to create artist' });
-  }
-});
+// Update artist
+router.put('/:id', authenticateToken, requireSafeRole('/:id', 'PUT'))', authenticateToken, requireSafeRole('/artists/:id', 'PUT'), updateArtist);
 
-// --------------------
-// UPDATE artist by ID
-// --------------------
-router.put('/:id', async (req, res) => {
-  const { id } = req.params;
-  const { name, style } = req.body;
-
-  try {
-    const result = await pool.query(
-      'UPDATE artists SET name = $1, style = $2 WHERE id = $3 RETURNING *',
-      [name, style, id]
-    );
-    if (result.rows.length === 0) return res.status(404).json({ error: 'Artist not found' });
-    res.json(result.rows[0]);
-  } catch (err) {
-    console.error(err.message);
-    res.status(500).json({ error: 'Failed to update artist' });
-  }
-});
-
-// --------------------
-// DELETE artist by ID
-// --------------------
-router.delete('/:id', async (req, res) => {
-  const { id } = req.params;
-  try {
-    const result = await pool.query('DELETE FROM artists WHERE id = $1 RETURNING *', [id]);
-    if (result.rows.length === 0) return res.status(404).json({ error: 'Artist not found' });
-    res.json({ message: 'Artist deleted successfully', artist: result.rows[0] });
-  } catch (err) {
-    console.error(err.message);
-    res.status(500).json({ error: 'Failed to delete artist' });
-  }
-});
+// Delete artist
+router.delete('/:id', authenticateToken, requireSafeRole('/:id', 'DELETE'))', authenticateToken, requireSafeRole('/artists/:id', 'DELETE'), deleteArtist);
 
 module.exports = router;
