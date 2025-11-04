@@ -1,12 +1,18 @@
-// routes/bookings.js
 const express = require('express');
 const router = express.Router();
-const { authenticateToken, requireSafeRole } = require('../middleware/auth');
-const { getBookings, createBooking, updateBooking, deleteBooking } = require('../controllers/bookingsController');
+const { authenticateToken } = require('../middleware/auth');
+const {
+  getBookings,
+  getBookingById,
+  createBooking,
+  updateBooking,
+  deleteBooking
+} = require('../controllers/bookingsController');
 
-router.get('/', authenticateToken, requireSafeRole(['admin','editor','viewer']), getBookings);
-router.post('/', authenticateToken, requireSafeRole(['admin','editor']), createBooking);
-router.put('/:id', authenticateToken, requireSafeRole(['admin','editor']), updateBooking);
-router.delete('/:id', authenticateToken, requireSafeRole(['admin']), deleteBooking);
+router.get('/', authenticateToken, getBookings);
+router.get('/:id', authenticateToken, getBookingById);
+router.post('/', authenticateToken, createBooking);
+router.put('/:id', authenticateToken, updateBooking);
+router.delete('/:id', authenticateToken, deleteBooking);
 
 module.exports = router;

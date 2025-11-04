@@ -1,24 +1,32 @@
-// server.js
+// backend/server.js
+require('dotenv').config();
 const express = require('express');
-const dotenv = require('dotenv');
 const cors = require('cors');
+const bodyParser = require('body-parser');
 
-// Load env variables
-dotenv.config();
+const { authenticateToken } = require('./middleware/auth');
 
 const app = express();
+
+// Middleware
 app.use(cors());
-app.use(express.json());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // Routes
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/artists', require('./routes/artists'));
+app.use('/api/clients', require('./routes/clients'));
+app.use('/api/projects', require('./routes/projects'));
 app.use('/api/bookings', require('./routes/bookings'));
-// Add clients/projects routes later as needed
 
-// Root
-app.get('/', (req, res) => res.send('InkConnect API running'));
+// Root route
+app.get('/', (req, res) => {
+  res.send('InkConnect API is running 🚀');
+});
 
 // Start server
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`Server listening on port ${PORT}`));
+app.listen(PORT, () => {
+  console.log(`Server listening on port ${PORT}`);
+});

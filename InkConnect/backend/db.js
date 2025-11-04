@@ -1,22 +1,13 @@
 // backend/db.js
 const { Pool } = require('pg');
+require('dotenv').config();
 
-// PostgreSQL credentials (copied directly from your .env)
 const pool = new Pool({
-  user: 'inkconnect_user',
-  host: 'localhost',
-  database: 'inkconnect_db',
-  password: 'INK123',
-  port: 5432
+  connectionString: process.env.DATABASE_URL,
 });
 
 pool.on('connect', () => {
-  console.log('✅ Connected to PostgreSQL successfully!');
-});
-
-pool.on('error', (err) => {
-  console.error('❌ Unexpected error on idle client', err);
-  process.exit(-1);
+  console.log('✅ Connected to PostgreSQL');
 });
 
 module.exports = { pool };

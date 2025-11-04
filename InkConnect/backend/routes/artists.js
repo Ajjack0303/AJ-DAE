@@ -1,9 +1,18 @@
-// routes/artists.js
 const express = require('express');
 const router = express.Router();
-const { authenticateToken, requireSafeRole } = require('../middleware/auth');
-const { getArtists } = require('../controllers/artistsController');
+const { authenticateToken } = require('../middleware/auth');
+const {
+  getArtists,
+  getArtistById,
+  createArtist,
+  updateArtist,
+  deleteArtist
+} = require('../controllers/artistsController');
 
-router.get('/', authenticateToken, requireSafeRole(['admin','editor','viewer']), getArtists);
+router.get('/', authenticateToken, getArtists);
+router.get('/:id', authenticateToken, getArtistById);
+router.post('/', authenticateToken, createArtist);
+router.put('/:id', authenticateToken, updateArtist);
+router.delete('/:id', authenticateToken, deleteArtist);
 
 module.exports = router;

@@ -1,11 +1,18 @@
 const express = require('express');
 const router = express.Router();
-const { authenticateToken, requireSafeRole } = require('../middleware/auth');
-const { getProjects, createProject, updateProject, deleteProject } = require('../controllers/projectsController');
+const { authenticateToken } = require('../middleware/auth');
+const {
+  getProjects,
+  getProjectById,
+  createProject,
+  updateProject,
+  deleteProject
+} = require('../controllers/projectsController');
 
-router.get('/', authenticateToken, requireSafeRole(['admin', 'editor', 'viewer']), getProjects);
-router.post('/', authenticateToken, requireSafeRole(['admin', 'editor']), createProject);
-router.put('/:id', authenticateToken, requireSafeRole(['admin', 'editor']), updateProject);
-router.delete('/:id', authenticateToken, requireSafeRole(['admin']), deleteProject);
+router.get('/', authenticateToken, getProjects);
+router.get('/:id', authenticateToken, getProjectById);
+router.post('/', authenticateToken, createProject);
+router.put('/:id', authenticateToken, updateProject);
+router.delete('/:id', authenticateToken, deleteProject);
 
 module.exports = router;
