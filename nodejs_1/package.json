@@ -1,0 +1,11 @@
+{
+  "name": "nodejs-1-submission",
+  "version": "1.0.0",
+  "description": "Node.js core course submission demonstrating http, fs, and path usage (CommonJS).",
+  "main": "basicServer.js",
+  "scripts": {
+    "start": "node basicServer.js"
+  },
+  "author": "AJ",
+  "license": "MIT"
+}

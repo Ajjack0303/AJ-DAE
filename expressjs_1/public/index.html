@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>ExpressJS Course Demo</title>
+  <style>
+    body { font-family: system-ui, Arial; margin: 2rem; }
+    h1 { color: #222; }
+    code { background: #f5f5f5; padding: 2px 6px; border-radius: 4px; }
+  </style>
+</head>
+<body>
+  <h1>ExpressJS Course Demo</h1>
+  <p>This static file is served by <code>express.static</code>.</p>
+  <ul>
+    <li>GET <code>/</code> → JSON welcome</li>
+    <li>GET <code>/text</code> → Plain text</li>
+    <li>GET <code>/utils/echo/:word</code> → Echo URL parameter</li>
+    <li>GET <code>/utils/math/add?a=1&b=2</code> → JSON math</li>
+  </ul>
+</body>
+</html>
