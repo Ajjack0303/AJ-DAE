@@ -1,0 +1,77 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String   @unique
+  password  String
+  role      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  artistId  Int?     @unique
+  artist    Artist?  @relation(fields: [artistId], references: [id])
+}
+
+model Artist {
+  id         Int         @id @default(autoincrement())
+  name       String
+  email      String      @unique
+  bio        String?
+  avatarUrl  String?
+  userId     Int?        @unique
+  bookings   Booking[]
+  payments   Payment[]
+  portfolios Portfolio[]
+  user       User?
+}
+
+model Portfolio {
+  id          Int      @id @default(autoincrement())
+  title       String
+  description String?
+  imageUrl    String
+  artistId    Int
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  artist      Artist   @relation(fields: [artistId], references: [id])
+}
+
+model Booking {
+  id         Int       @id @default(autoincrement())
+  artistId   Int
+  clientName String
+  date       DateTime
+  status     String
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+  artist     Artist    @relation(fields: [artistId], references: [id])
+  payments   Payment[]
+}
+
+model Payment {
+  id        Int      @id @default(autoincrement())
+  artistId  Int
+  bookingId Int
+  amount    Float
+  status    String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  artist    Artist   @relation(fields: [artistId], references: [id])
+  booking   Booking  @relation(fields: [bookingId], references: [id])
+}
+
+model Message {
+  id         Int      @id @default(autoincrement())
+  senderId   Int
+  receiverId Int
+  content    String
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}

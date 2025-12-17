@@ -1,0 +1,27 @@
+.main {
+  min-height: 100vh;
+  background-color: #f9fafb;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.name {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #111827;
+  margin-bottom: 1rem;
+}
+
+.info {
+  color: #374151;
+  margin-bottom: 0.5rem;
+}
+
+.bookings {
+  margin-top: 1.5rem;
+  list-style: disc;
+  padding-left: 1.5rem;
+  color: #374151;
+}
